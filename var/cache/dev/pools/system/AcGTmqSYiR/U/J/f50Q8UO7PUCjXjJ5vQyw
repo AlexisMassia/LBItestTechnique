@@ -836,11 +836,65 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                             'JWT' => [],
                         ],
                     ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'firstname' => [
+                                            'type' => 'string',
+                                            'example' => 'Ryan',
+                                        ],
+                                        'lastname' => [
+                                            'type' => 'string',
+                                            'example' => 'Gosling',
+                                        ],
+                                        'dateOfBirth' => [
+                                            'type' => 'string',
+                                            'example' => '1980-10-12T00:00:00.000Z',
+                                        ],
+                                        'nationality' => [
+                                            'type' => 'string',
+                                            'example' => 'Américaine',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 12 => [
                     'security' => [
                         [
                             'JWT' => [],
+                        ],
+                    ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/merge-patch+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'firstname' => [
+                                            'type' => 'string',
+                                            'example' => 'Ryan',
+                                        ],
+                                        'lastname' => [
+                                            'type' => 'string',
+                                            'example' => 'Gosling',
+                                        ],
+                                        'dateOfBirth' => [
+                                            'type' => 'string',
+                                            'example' => '1980-10-12T00:00:00.000Z',
+                                        ],
+                                        'nationality' => [
+                                            'type' => 'string',
+                                            'example' => 'Américaine',
+                                        ],
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                 ],

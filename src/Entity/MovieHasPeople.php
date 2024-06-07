@@ -16,20 +16,73 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieHasPeopleRepository::class)]
 #[ApiResource(
-    // TODO : créer doc si temps
     operations: [
         new Post(
             denormalizationContext: ['groups' => ['write:MovieHasPeople']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/ld+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'movie' => [
+                                        'type' => 'string',
+                                        'example' => '/api/movies/1'
+                                    ],
+                                    'people' => [
+                                        'type' => 'string',
+                                        'example' => '/api/peoples/1'
+                                    ],
+                                    'role' => [
+                                        'type' => 'string',
+                                        'example' => 'acteur'
+                                    ],
+                                    'significance' => [
+                                        'type' => 'string',
+                                        'example' => 'principal'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Patch(
             denormalizationContext: ['groups' => ['write:MovieHasPeople']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/merge-patch+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'movie' => [
+                                        'type' => 'string',
+                                        'example' => '/api/movies/1'
+                                    ],
+                                    'people' => [
+                                        'type' => 'string',
+                                        'example' => '/api/peoples/1'
+                                    ],
+                                    'role' => [
+                                        'type' => 'string',
+                                        'example' => 'acteur'
+                                    ],
+                                    'significance' => [
+                                        'type' => 'string',
+                                        'example' => 'principal'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Delete(

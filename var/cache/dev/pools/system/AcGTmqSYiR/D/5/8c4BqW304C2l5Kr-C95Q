@@ -836,11 +836,71 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                             'JWT' => [],
                         ],
                     ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'title' => [
+                                            'type' => 'string',
+                                            'example' => 'Drive',
+                                        ],
+                                        'duration' => [
+                                            'type' => 'integer',
+                                            'example' => 100,
+                                        ],
+                                        'types' => [
+                                            'type' => 'array',
+                                            'items' => [
+                                                'type' => 'array',
+                                            ],
+                                            'example' => [
+                                                '/api/types/1',
+                                                '/api/types/2',
+                                                '/api/types/3',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 12 => [
                     'security' => [
                         [
                             'JWT' => [],
+                        ],
+                    ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/merge-patch+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'title' => [
+                                            'type' => 'string',
+                                            'example' => 'Drive',
+                                        ],
+                                        'duration' => [
+                                            'type' => 'integer',
+                                            'example' => 100,
+                                        ],
+                                        'types' => [
+                                            'type' => 'array',
+                                            'items' => [
+                                                'type' => 'array',
+                                            ],
+                                            'example' => [
+                                                '/api/types/1',
+                                                '/api/types/2',
+                                                '/api/types/3',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                 ],

@@ -34,14 +34,44 @@ use Symfony\Component\Validator\Constraints as Assert;
             denormalizationContext: ['groups' => ['write:Type']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/ld+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'name' => [
+                                        'type' => 'string',
+                                        'example' => 'Western'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Patch(
             denormalizationContext: ['groups' => ['write:Type']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/ld+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'name' => [
+                                        'type' => 'string',
+                                        'example' => 'Western'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Delete(

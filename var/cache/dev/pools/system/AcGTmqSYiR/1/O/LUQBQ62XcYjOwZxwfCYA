@@ -837,11 +837,41 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                             'JWT' => [],
                         ],
                     ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'name' => [
+                                            'type' => 'string',
+                                            'example' => 'Western',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 12 => [
                     'security' => [
                         [
                             'JWT' => [],
+                        ],
+                    ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'name' => [
+                                            'type' => 'string',
+                                            'example' => 'Western',
+                                        ],
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                 ],

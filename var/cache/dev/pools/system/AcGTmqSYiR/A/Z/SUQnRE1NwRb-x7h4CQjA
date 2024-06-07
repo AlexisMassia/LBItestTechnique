@@ -728,12 +728,66 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                             'JWT' => [],
                         ],
                     ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'movie' => [
+                                            'type' => 'string',
+                                            'example' => '/api/movies/1',
+                                        ],
+                                        'people' => [
+                                            'type' => 'string',
+                                            'example' => '/api/peoples/1',
+                                        ],
+                                        'role' => [
+                                            'type' => 'string',
+                                            'example' => 'acteur',
+                                        ],
+                                        'significance' => [
+                                            'type' => 'string',
+                                            'example' => 'principal',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 5 => null,
                 8 => [
                     'security' => [
                         [
                             'JWT' => [],
+                        ],
+                    ],
+                    'requestBody' => [
+                        'content' => [
+                            'application/merge-patch+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'movie' => [
+                                            'type' => 'string',
+                                            'example' => '/api/movies/1',
+                                        ],
+                                        'people' => [
+                                            'type' => 'string',
+                                            'example' => '/api/peoples/1',
+                                        ],
+                                        'role' => [
+                                            'type' => 'string',
+                                            'example' => 'acteur',
+                                        ],
+                                        'significance' => [
+                                            'type' => 'string',
+                                            'example' => 'principal',
+                                        ],
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                 ],

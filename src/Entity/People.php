@@ -23,7 +23,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: PeopleRepository::class)]
 #[ApiResource(
     // TODO : Créer DataProvider pour requetes n+1 si temps
-    // TODO : créer doc si temps
     paginationItemsPerPage: 20,
     paginationMaximumItemsPerPage: 50, // TODO : à voir si légitime ou pas 
     paginationClientItemsPerPage: true, // TODO : à voir si légitime ou pas 
@@ -35,14 +34,68 @@ use Symfony\Component\Validator\Constraints as Assert;
             denormalizationContext: ['groups' => ['write:People']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/ld+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'firstname' => [
+                                        'type' => 'string',
+                                        'example' => 'Ryan'
+                                    ],
+                                    'lastname' => [
+                                        'type' => 'string',
+                                        'example' => 'Gosling'
+                                    ],
+                                    'dateOfBirth' => [
+                                        'type' => 'string',
+                                        'example' => '1980-10-12T00:00:00.000Z'
+                                    ],
+                                    'nationality' => [
+                                        'type' => 'string',
+                                        'example' => 'Américaine'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Patch(
             denormalizationContext: ['groups' => ['write:People']],
             security: 'is_granted("ROLE_ADMIN")',
             openapiContext: [
-                'security' => [['JWT' => []]]
+                'security' => [['JWT' => []]],
+                'requestBody' => [
+                    'content' => [
+                        'application/merge-patch+json' => [
+                            'schema' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'firstname' => [
+                                        'type' => 'string',
+                                        'example' => 'Ryan'
+                                    ],
+                                    'lastname' => [
+                                        'type' => 'string',
+                                        'example' => 'Gosling'
+                                    ],
+                                    'dateOfBirth' => [
+                                        'type' => 'string',
+                                        'example' => '1980-10-12T00:00:00.000Z'
+                                    ],
+                                    'nationality' => [
+                                        'type' => 'string',
+                                        'example' => 'Américaine'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ),
         new Delete(
