@@ -8,6 +8,7 @@ use App\Entity\MovieHasPeople;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Delete;
 use Doctrine\ORM\Mapping as ORM;
+use App\Controller\TMDBController;
 use App\Repository\MovieRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
@@ -16,8 +17,8 @@ use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use Doctrine\Common\Collections\ArrayCollection;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Attribute\Groups;
-use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
@@ -110,7 +111,57 @@ use Symfony\Component\Validator\Constraints as Assert;
             openapiContext: [
                 'security' => [['JWT' => []]]
             ]
-        )
+        ),
+
+        new Get(
+            name: 'getPoster', 
+            uriTemplate: '/findPoster', 
+            controller: TMDBController::class,
+            read: false,
+            paginationEnabled: false,
+            security: 'is_granted("ROLE_ADMIN")',
+            openapiContext : [
+                'security' => [['JWT' => []]],
+                'parameters' => [
+                    [
+                        'name' => 'name',
+                        'in' => 'query',
+                        'required' => true,
+                        'schema' => [
+                            'type' => 'string'
+                        ],
+                        'description' => 'The name of the movie to search for'
+                    ]
+                ],
+                'summary' => 'Find a movie poster by name',
+                'responses' => [
+                    '200' => [
+                        'description' => 'Movie poster information',
+                        'content' => [
+                            'application/ld+json' => [
+                                'schema' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'poster_path' => [
+                                            'type' => 'string',
+                                            'example' => '602vevIURmpDfzbnv5Ubi6wIkQm.jpg'
+                                        ],
+                                        'poster_full_url' => [
+                                            'type' => 'string',
+                                            'example' => 'https://image.tmdb.org/t/p/original/602vevIURmpDfzbnv5Ubi6wIkQm.jpg'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    '400' => [
+                        'description' => 'Resource not found',
+                    ]
+                ]
+            ]
+        ),
+  
     ],
 ),
 ApiFilter(SearchFilter::class, properties: ['title' => 'partial']),

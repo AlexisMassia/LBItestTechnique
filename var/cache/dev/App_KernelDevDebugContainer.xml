@@ -9,8 +9,8 @@
     <parameter key="kernel.runtime_mode.cli">%env(not:default:kernel.runtime_mode.web:)%</parameter>
     <parameter key="kernel.runtime_mode.worker">%env(bool:default::key:worker:default:kernel.runtime_mode:)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev</parameter>
-    <parameter key="kernel.cache_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev</parameter>
+    <parameter key="kernel.build_dir">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -68,6 +68,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="TMDB_TOKEN">%env(string:TMDB_TOKEN)%</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -98,15 +99,15 @@
     <parameter key="asset.request_context.base_path">null</parameter>
     <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
-    <parameter key="router.cache_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev</parameter>
+    <parameter key="router.cache_dir">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/serialization.php</parameter>
     <parameter key="cache.prefix.seed">_C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
@@ -118,11 +119,11 @@
     </parameter>
     <parameter key="session.save_path">null</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
-    <parameter key="validator.mapping.cache.file">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/profiler</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
@@ -202,7 +203,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -455,6 +456,10 @@
         <parameter>twig</parameter>
         <parameter>@WebProfiler/Collector/twig.html.twig</parameter>
       </parameter>
+      <parameter key="data_collector.http_client" type="collection">
+        <parameter>http_client</parameter>
+        <parameter>@WebProfiler/Collector/http_client.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.doctrine" type="collection">
         <parameter>db</parameter>
         <parameter>@Doctrine/Collector/db.html.twig</parameter>
@@ -484,6 +489,15 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\TMDBController" class="App\Controller\TMDBController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id=".debug.http_client"/>
+      <argument type="service" id="parameter_bag"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\TMDBController"/>
       </call>
     </service>
     <service id="App\EventListener\UniqueEntityFilter" class="App\EventListener\UniqueEntityFilter" autowire="true" autoconfigure="true">
@@ -618,7 +632,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/http_cache</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -628,7 +642,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -658,6 +672,7 @@
         <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
+        <argument key="http_client.transport" type="service" id="http_client.transport" on-invalid="ignore_uninitialized"/>
         <argument key="debug.stopwatch" type="service" id="debug.stopwatch" on-invalid="ignore_uninitialized"/>
         <argument key="debug.event_dispatcher" type="service" id="debug.event_dispatcher" on-invalid="ignore_uninitialized"/>
         <argument key="session_listener" type="service" id="session_listener" on-invalid="ignore_uninitialized"/>
@@ -676,6 +691,7 @@
         <argument key="api_platform.cache.metadata.resource" type="service" id="api_platform.cache.metadata.resource" on-invalid="ignore_uninitialized"/>
         <argument key="api_platform.cache.metadata.property" type="service" id="api_platform.cache.metadata.property" on-invalid="ignore_uninitialized"/>
         <argument key="api_platform.cache.metadata.resource_collection" type="service" id="api_platform.cache.metadata.resource_collection" on-invalid="ignore_uninitialized"/>
+        <argument key=".debug.http_client" type="service" id=".debug.http_client" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -695,6 +711,9 @@
         </argument>
         <argument key="cache.property_info" type="collection">
           <argument>reset</argument>
+        </argument>
+        <argument key="http_client.transport" type="collection">
+          <argument>?reset</argument>
         </argument>
         <argument key="debug.stopwatch" type="collection">
           <argument>reset</argument>
@@ -749,6 +768,9 @@
           <argument>reset</argument>
         </argument>
         <argument key="api_platform.cache.metadata.resource_collection" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key=".debug.http_client" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -1265,7 +1287,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1284,7 +1306,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/app</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -1446,13 +1468,60 @@
     <service id="assets.empty_version_strategy" class="Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy"/>
     <service id="assets.json_manifest_version_strategy" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" abstract="true">
       <argument type="abstract">manifest path</argument>
-      <argument type="service" id="http_client" on-invalid="null"/>
+      <argument type="service" id=".debug.http_client" on-invalid="null"/>
       <argument>false</argument>
     </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage">
       <argument></argument>
       <argument type="service" id="assets.empty_version_strategy"/>
       <argument type="service" id="assets.context"/>
+    </service>
+    <service id="http_client.transport" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <tag name="monolog.logger" channel="http_client"/>
+      <tag name="kernel.reset" method="reset" on_invalid="ignore"/>
+      <argument type="collection"/>
+      <argument>6</argument>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+      <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
+    </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
+    <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
+      <argument type="abstract">http codes</argument>
+      <argument type="abstract">delay ms</argument>
+      <argument type="abstract">multiplier</argument>
+      <argument type="abstract">max delay ms</argument>
+      <argument type="abstract">jitter</argument>
+    </service>
+    <service id="http_client.uri_template" class="Symfony\Component\HttpClient\UriTemplateHttpClient">
+      <argument type="service" id="http_client.uri_template.inner"/>
+      <argument>null</argument>
+      <argument type="collection"/>
+    </service>
+    <service id="http_client.uri_template_expander.guzzle" class="Closure">
+      <argument type="collection">
+        <argument>GuzzleHttp\UriTemplate\UriTemplate</argument>
+        <argument>expand</argument>
+      </argument>
+      <factory class="Closure" method="fromCallable"/>
+    </service>
+    <service id="http_client.uri_template_expander.rize" class="Closure">
+      <argument type="collection">
+        <argument type="service">
+          <service class="Rize\UriTemplate"/>
+        </argument>
+        <argument>expand</argument>
+      </argument>
+      <factory class="Closure" method="fromCallable"/>
+    </service>
+    <service id="http_client.messenger.ping_webhook_handler" class="Symfony\Component\HttpClient\Messenger\PingWebhookMessageHandler">
+      <tag name="messenger.message_handler"/>
+      <argument type="service" id=".debug.http_client"/>
     </service>
     <service id="debug.error_handler_configurator" class="Symfony\Component\HttpKernel\Debug\ErrorHandlerConfigurator" public="true">
       <tag name="monolog.logger" channel="php"/>
@@ -2089,7 +2158,7 @@
       <argument type="service" id=".service_locator.PvoQzFT.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev</argument>
+        <argument key="cache_dir">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2257,10 +2326,10 @@
           </service>
         </argument>
       </argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/serialization.php</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/serialization.php</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -2396,7 +2465,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/sessions</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -2480,10 +2549,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/validation.php</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" constructor="create">
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/validation.php</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
@@ -2758,7 +2827,7 @@
     </service>
     <service id="validator.not_compromised_password" class="Symfony\Component\Validator\Constraints\NotCompromisedPasswordValidator">
       <tag name="validator.constraint_validator"/>
-      <argument>null</argument>
+      <argument type="service" id=".debug.http_client" on-invalid="null"/>
       <argument>UTF-8</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2828,6 +2897,9 @@
         <argument type="service" id="data_collector.twig"/>
       </call>
       <call method="add">
+        <argument type="service" id="data_collector.http_client"/>
+      </call>
+      <call method="add">
         <argument type="service" id="data_collector.doctrine"/>
       </call>
       <call method="add">
@@ -2838,7 +2910,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/profiler</argument>
+      <argument>file:C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -2897,7 +2969,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="logger" on-invalid="ignore"/>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/App_KernelDevDebugContainer</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id=".virtual_request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -2996,6 +3068,13 @@
       <tag name="data_collector" template="@WebProfiler/Collector/validator.html.twig" id="validator" priority="320"/>
       <argument type="service" id="debug.validator"/>
     </service>
+    <service id="data_collector.http_client" class="Symfony\Component\HttpClient\DataCollector\HttpClientDataCollector">
+      <tag name="data_collector" template="@WebProfiler/Collector/http_client.html.twig" id="http_client" priority="250"/>
+      <call method="registerClient">
+        <argument>http_client</argument>
+        <argument type="service" id=".debug.http_client"/>
+      </call>
+    </service>
     <service id="debug.serializer" class="Symfony\Component\Serializer\Debug\TraceableSerializer">
       <tag name="container.decorator" id="serializer" inner="debug.serializer.inner"/>
       <argument type="service" id="debug.serializer.inner"/>
@@ -3016,7 +3095,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/twig</argument>
+        <argument key="cache">C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -3695,7 +3774,7 @@
     </service>
     <service id="security.access_token_handler.oidc_user_info.http_client" class="Symfony\Contracts\HttpClient\HttpClientInterface" abstract="true">
       <argument type="abstract">http client options</argument>
-      <factory service="http_client" method="withOptions"/>
+      <factory service=".debug.http_client" method="withOptions"/>
     </service>
     <service id="security.access_token_handler.oidc_user_info" class="Symfony\Component\Security\Http\AccessToken\Oidc\OidcUserInfoTokenHandler" abstract="true">
       <argument type="abstract">http client</argument>
@@ -4434,7 +4513,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -6139,6 +6218,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TMDBController" class="App\Controller\TMDBController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TMDBController" class="App\Controller\TMDBController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TMDBController" class="App\Controller\TMDBController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MovieHasPeopleRepository" class="App\Repository\MovieHasPeopleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MovieHasPeopleRepository" class="App\Repository\MovieHasPeopleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MovieRepository" class="App\Repository\MovieRepository" autowire="true" abstract="true"/>
@@ -6840,6 +6922,13 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
+    <service id=".debug.http_client" class="Symfony\Component\HttpClient\TraceableHttpClient">
+      <tag name="http_client.client"/>
+      <tag name="kernel.reset" method="reset"/>
+      <tag name="container.decorator" id="http_client" inner="http_client.uri_template.inner"/>
+      <argument type="service" id="http_client.uri_template"/>
+      <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
+    </service>
     <service id=".debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
       <argument type="service" id="security.access.authenticated_voter"/>
       <argument type="service" id="debug.event_dispatcher"/>
@@ -7075,6 +7164,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.O2p6Lk7" method="withContext"/>
     </service>
+    <service id=".service_locator.O2p6Lk7.App\Controller\TMDBController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\TMDBController"/>
+      <argument>App\Controller\TMDBController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.O2p6Lk7" method="withContext"/>
+    </service>
     <service id=".service_locator.PvoQzFT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7248,6 +7343,12 @@
       <argument type="service" id="api_platform.metadata.property.metadata_factory.cached"/>
       <argument type="service" id="api_platform.resource_class_resolver"/>
     </service>
+    <service id="http_client.uri_template.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
+      <argument type="collection">
+        <argument type="service" id="http_client.transport"/>
+      </argument>
+      <factory function="current"/>
+    </service>
     <service id="debug.event_dispatcher.inner" class="Symfony\Component\EventDispatcher\EventDispatcher"/>
     <service id="debug.controller_resolver.inner" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <argument type="service" id="service_container"/>
@@ -7262,6 +7363,7 @@
         <argument type="collection">
           <argument>App\Kernel</argument>
           <argument>App\Controller\SecurityController</argument>
+          <argument>App\Controller\TMDBController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>
@@ -8364,7 +8466,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument>sC0a-BeNQs</argument>
       <argument>0</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/app</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
@@ -8374,7 +8476,7 @@
       <argument>YwxROVx+fq</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8382,7 +8484,7 @@
       <argument>oWcEaJ4eUz</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8390,7 +8492,7 @@
       <argument>6UVHMeIhbe</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8398,7 +8500,7 @@
       <argument>DiEq1P+4ng</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8406,7 +8508,7 @@
       <argument>OrTwTJPtaU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8414,7 +8516,7 @@
       <argument>fLU0s4cwdi</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8422,7 +8524,7 @@
       <argument>kuZZ8s1NT5</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8430,7 +8532,7 @@
       <argument>4MrNZYa1EH</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8440,7 +8542,7 @@
       <argument>DKtF2yIgGu</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8448,7 +8550,7 @@
       <argument>JB256Eks+X</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8456,7 +8558,7 @@
       <argument>8LFvvuBCIC</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8464,7 +8566,7 @@
       <argument>AcGTmqSYiR</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\Alexis\Desktop\testTechniqueBoiteImmo\LBI\LBI\var\cache\dev/pools/system</argument>
+      <argument>C:/Users/Alexis/Desktop/testTechniqueBoiteImmo/LBI/LBI/var/cache/dev/pools/system</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8507,6 +8609,8 @@
     <service id="Symfony\Contracts\Cache\CacheInterface" alias="cache.app"/>
     <service id="Symfony\Contracts\Cache\TagAwareCacheInterface" alias="cache.app.taggable"/>
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages"/>
+    <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="Symfony\Component\ErrorHandler\ErrorRenderer\FileLinkFormatter" alias="debug.file_link_formatter"/>
     <service id="Symfony\Component\Stopwatch\Stopwatch" alias="debug.stopwatch"/>
     <service id="routing.loader.annotation" alias="routing.loader.attribute">
@@ -8724,6 +8828,8 @@
     <service id="api_platform.metadata.property.metadata_factory.yaml.inner" alias="api_platform.metadata.property.metadata_factory.attribute"/>
     <service id="api_platform.metadata.property.metadata_factory.validator.inner" alias="api_platform.metadata.property.metadata_factory.yaml"/>
     <service id="api_platform.json_schema.metadata.property.metadata_factory.schema.inner" alias="api_platform.metadata.property.metadata_factory.validator"/>
+    <service id="http_client" alias=".debug.http_client"/>
+    <service id=".debug.http_client.inner" alias="http_client.uri_template"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
