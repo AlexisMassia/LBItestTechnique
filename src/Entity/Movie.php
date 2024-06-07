@@ -2,24 +2,68 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use App\Entity\MovieHasPeople;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Delete;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\MovieRepository;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
+#[ApiResource(
+    // TODO : créer pagination et filtres
+    // TODO : Créer DataProvider pour requetes n+1 si temps
+    // TODO : créer doc si temps
+    normalizationContext: ['groups' => ['read:Movie:collection:full']],
+    operations: [
+        new Get(
+            normalizationContext: ['groups' => ['read:Movie:item']]
+        ),
+        new GetCollection(),
+        new Post(
+            denormalizationContext: ['groups' => ['write:Movie']],
+            security: 'is_granted("ROLE_ADMIN")',
+            openapiContext: [
+                'security' => [['JWT' => []]]
+            ]
+        ),
+        new Patch(
+            denormalizationContext: ['groups' => ['write:Movie']],
+            security: 'is_granted("ROLE_ADMIN")',
+            openapiContext: [
+                'security' => [['JWT' => []]],
+            ]
+        ),
+        new Delete(
+            security: 'is_granted("ROLE_ADMIN")',
+            openapiContext: [
+                'security' => [['JWT' => []]]
+            ]
+        )
+    ],
+)
+]
 class Movie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read:Movie:collection:light','read:Movie:collection:full', 'read:Movie:item', 'read:People:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['read:Movie:collection:light','read:Movie:collection:full', 'read:Movie:item', 'write:Movie', 'read:People:item'])]
     private ?string $title = null;
 
     #[ORM\Column]
+    #[Groups(['read:Movie:collection:full', 'read:Movie:item', 'write:Movie', 'read:People:item'])]
     private ?int $duration = null;
 
     /**
@@ -29,12 +73,14 @@ class Movie
     #[ORM\JoinTable(name: 'movie_has_type')]
     #[ORM\JoinColumn(name: 'movie_id', referencedColumnName: 'id')]
     #[ORM\InverseJoinColumn(name: 'type_id', referencedColumnName: 'id')]
+    #[Groups(['read:Movie:collection:full', 'read:Movie:item','write:Movie'])]
     private Collection $types;
 
     /**
      * @var Collection<int, MovieHasPeople>
      */
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: MovieHasPeople::class, cascade: ["remove"])]
+    #[Groups(['read:Movie:item'])]
     private Collection $cast;
 
     public function __construct()
@@ -125,6 +171,13 @@ class Movie
         }
 
         return $this;
+    }
+
+    #[SerializedName('castCount')]
+    #[Groups(['read:Movie:collection:full'])] // TODO : juger si réélement utile
+    public function getCastCount(): int
+    {
+        return $this->cast->count();
     }
 
 }

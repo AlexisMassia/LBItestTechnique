@@ -1,0 +1,1061 @@
+<?php //resource_metadata_collection_fce39d758b3db9a286668eaf10d06fa9
+
+return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['ApiPlatform\\Metadata\\ApiResource'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\ApiResource')),
+        clone ($p['ApiPlatform\\Metadata\\Operations'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Operations')),
+        clone ($p['ApiPlatform\\Metadata\\Get'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Get')),
+        clone ($p['ApiPlatform\\Doctrine\\Orm\\State\\Options'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Doctrine\\Orm\\State\\Options')),
+        clone ($p['ApiPlatform\\Metadata\\Parameters'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Parameters')),
+        clone ($p['ApiPlatform\\Metadata\\Link'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Link')),
+        clone ($p['ApiPlatform\\Metadata\\GetCollection'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\GetCollection')),
+        clone $p['ApiPlatform\\Doctrine\\Orm\\State\\Options'],
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+        clone ($p['ApiPlatform\\Metadata\\Post'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Post')),
+        clone $p['ApiPlatform\\Doctrine\\Orm\\State\\Options'],
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+        clone ($p['ApiPlatform\\Metadata\\Patch'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Patch')),
+        clone $p['ApiPlatform\\Doctrine\\Orm\\State\\Options'],
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+        clone $p['ApiPlatform\\Metadata\\Link'],
+        clone ($p['ApiPlatform\\Metadata\\Delete'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('ApiPlatform\\Metadata\\Delete')),
+        clone $p['ApiPlatform\\Doctrine\\Orm\\State\\Options'],
+        clone $p['ApiPlatform\\Metadata\\Parameters'],
+        clone $p['ApiPlatform\\Metadata\\Link'],
+        clone $p['ApiPlatform\\Metadata\\Link'],
+    ],
+    null,
+    [
+        'ApiPlatform\\Metadata\\ApiResource' => [
+            'shortName' => [
+                'People',
+            ],
+            'class' => [
+                'App\\Entity\\People',
+            ],
+            'description' => [
+                null,
+            ],
+            'urlGenerationStrategy' => [
+                null,
+            ],
+            'deprecationReason' => [
+                null,
+            ],
+            'normalizationContext' => [
+                [
+                    'groups' => [
+                        'read:People:collection',
+                    ],
+                ],
+            ],
+            'denormalizationContext' => [
+                null,
+            ],
+            'collectDenormalizationErrors' => [
+                null,
+            ],
+            'validationContext' => [
+                null,
+            ],
+            'filters' => [
+                null,
+            ],
+            'elasticsearch' => [
+                null,
+            ],
+            'order' => [
+                null,
+            ],
+            'fetchPartial' => [
+                null,
+            ],
+            'forceEager' => [
+                null,
+            ],
+            'paginationEnabled' => [
+                null,
+            ],
+            'paginationType' => [
+                null,
+            ],
+            'paginationItemsPerPage' => [
+                null,
+            ],
+            'paginationMaximumItemsPerPage' => [
+                null,
+            ],
+            'paginationPartial' => [
+                null,
+            ],
+            'paginationClientEnabled' => [
+                null,
+            ],
+            'paginationClientItemsPerPage' => [
+                null,
+            ],
+            'paginationClientPartial' => [
+                null,
+            ],
+            'paginationFetchJoinCollection' => [
+                null,
+            ],
+            'paginationUseOutputWalkers' => [
+                null,
+            ],
+            'security' => [
+                null,
+            ],
+            'securityMessage' => [
+                null,
+            ],
+            'securityPostDenormalize' => [
+                null,
+            ],
+            'securityPostDenormalizeMessage' => [
+                null,
+            ],
+            'securityPostValidation' => [
+                null,
+            ],
+            'securityPostValidationMessage' => [
+                null,
+            ],
+            'stateOptions' => [
+                null,
+            ],
+            'parameters' => [
+                null,
+            ],
+            'extraProperties' => [
+                [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+            ],
+            'operations' => [
+                $o[1],
+            ],
+            'uriTemplate' => [
+                null,
+            ],
+            'types' => [
+                null,
+            ],
+            'formats' => [
+                null,
+            ],
+            'inputFormats' => [
+                null,
+            ],
+            'outputFormats' => [
+                null,
+            ],
+            'uriVariables' => [
+                [
+                    'id' => $o[20],
+                ],
+            ],
+            'routePrefix' => [
+                null,
+            ],
+            'defaults' => [
+                null,
+            ],
+            'requirements' => [
+                null,
+            ],
+            'options' => [
+                null,
+            ],
+            'stateless' => [
+                true,
+            ],
+            'sunset' => [
+                null,
+            ],
+            'acceptPatch' => [
+                null,
+            ],
+            'status' => [
+                null,
+            ],
+            'host' => [
+                null,
+            ],
+            'schemes' => [
+                null,
+            ],
+            'condition' => [
+                null,
+            ],
+            'controller' => [
+                null,
+            ],
+            'headers' => [
+                null,
+            ],
+            'cacheHeaders' => [
+                [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+            ],
+            'hydraContext' => [
+                null,
+            ],
+            'openapiContext' => [
+                null,
+            ],
+            'openapi' => [
+                null,
+            ],
+            'paginationViaCursor' => [
+                null,
+            ],
+            'compositeIdentifier' => [
+                null,
+            ],
+            'exceptionToStatus' => [
+                null,
+            ],
+            'queryParameterValidationEnabled' => [
+                null,
+            ],
+            'links' => [
+                null,
+            ],
+            'graphQlOperations' => [
+                [],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operations' => [
+            'operations' => [
+                1 => [
+                    [
+                        '_api_/peoples/{id}{._format}_get',
+                        $o[2],
+                    ],
+                    [
+                        '_api_/peoples{._format}_get_collection',
+                        $o[6],
+                    ],
+                    [
+                        '_api_/peoples{._format}_post',
+                        $o[9],
+                    ],
+                    [
+                        '_api_/peoples/{id}{._format}_patch',
+                        $o[12],
+                    ],
+                    [
+                        '_api_/peoples/{id}{._format}_delete',
+                        $o[16],
+                    ],
+                ],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Operation' => [
+            'shortName' => [
+                2 => 'People',
+                6 => 'People',
+                9 => 'People',
+                12 => 'People',
+                16 => 'People',
+            ],
+            'class' => [
+                2 => 'App\\Entity\\People',
+                6 => 'App\\Entity\\People',
+                9 => 'App\\Entity\\People',
+                12 => 'App\\Entity\\People',
+                16 => 'App\\Entity\\People',
+            ],
+            'description' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'urlGenerationStrategy' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'deprecationReason' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'normalizationContext' => [
+                2 => [
+                    'groups' => [
+                        'read:People:item',
+                    ],
+                ],
+                6 => [
+                    'groups' => [
+                        'read:People:collection',
+                    ],
+                ],
+                9 => [
+                    'groups' => [
+                        'read:People:collection',
+                    ],
+                ],
+                12 => [
+                    'groups' => [
+                        'read:People:collection',
+                    ],
+                ],
+                16 => [
+                    'groups' => [
+                        'read:People:collection',
+                    ],
+                ],
+            ],
+            'denormalizationContext' => [
+                2 => null,
+                6 => null,
+                9 => [
+                    'groups' => [
+                        'write:People',
+                    ],
+                ],
+                12 => [
+                    'groups' => [
+                        'write:People',
+                    ],
+                ],
+                16 => null,
+            ],
+            'collectDenormalizationErrors' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'validationContext' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'filters' => [
+                2 => [],
+                6 => [],
+                9 => [],
+                12 => [],
+                16 => [],
+            ],
+            'elasticsearch' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'order' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'fetchPartial' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'forceEager' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationEnabled' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationType' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationItemsPerPage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationMaximumItemsPerPage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationPartial' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationClientEnabled' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationClientItemsPerPage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationClientPartial' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationFetchJoinCollection' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'paginationUseOutputWalkers' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'security' => [
+                2 => null,
+                6 => null,
+                9 => 'is_granted("ROLE_ADMIN")',
+                12 => 'is_granted("ROLE_ADMIN")',
+                16 => 'is_granted("ROLE_ADMIN")',
+            ],
+            'securityMessage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'securityPostDenormalize' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'securityPostDenormalizeMessage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'securityPostValidation' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'securityPostValidationMessage' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'provider' => [
+                2 => 'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+                6 => 'ApiPlatform\\Doctrine\\Orm\\State\\CollectionProvider',
+                9 => 'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+                12 => 'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+                16 => 'ApiPlatform\\Doctrine\\Orm\\State\\ItemProvider',
+            ],
+            'processor' => [
+                2 => 'api_platform.doctrine.orm.state.persist_processor',
+                6 => 'api_platform.doctrine.orm.state.persist_processor',
+                9 => 'api_platform.doctrine.orm.state.persist_processor',
+                12 => 'api_platform.doctrine.orm.state.persist_processor',
+                16 => 'api_platform.doctrine.orm.state.remove_processor',
+            ],
+            'stateOptions' => [
+                2 => $o[3],
+                6 => $o[7],
+                9 => $o[10],
+                12 => $o[13],
+                16 => $o[17],
+            ],
+            'parameters' => [
+                2 => $o[4],
+                6 => $o[8],
+                9 => $o[11],
+                12 => $o[14],
+                16 => $o[18],
+            ],
+            'extraProperties' => [
+                2 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                6 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                9 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                12 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+                16 => [
+                    'standard_put' => true,
+                    'rfc_7807_compliant_errors' => true,
+                ],
+            ],
+            'read' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'deserialize' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'validate' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'write' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'serialize' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'priority' => [
+                2 => 0,
+                6 => 1,
+                9 => 2,
+                12 => 3,
+                16 => 4,
+            ],
+            'name' => [
+                2 => '_api_/peoples/{id}{._format}_get',
+                6 => '_api_/peoples{._format}_get_collection',
+                9 => '_api_/peoples{._format}_post',
+                12 => '_api_/peoples/{id}{._format}_patch',
+                16 => '_api_/peoples/{id}{._format}_delete',
+            ],
+        ],
+        'ApiPlatform\\Metadata\\HttpOperation' => [
+            'paginationViaCursor' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'method' => [
+                2 => 'GET',
+                6 => 'GET',
+                9 => 'POST',
+                12 => 'PATCH',
+                16 => 'DELETE',
+            ],
+            'uriTemplate' => [
+                2 => '/peoples/{id}{._format}',
+                6 => '/peoples{._format}',
+                9 => '/peoples{._format}',
+                12 => '/peoples/{id}{._format}',
+                16 => '/peoples/{id}{._format}',
+            ],
+            'types' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'inputFormats' => [
+                2 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                6 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                9 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                12 => [
+                    'json' => [
+                        'application/merge-patch+json',
+                    ],
+                ],
+                16 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+            ],
+            'outputFormats' => [
+                2 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                6 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                9 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                12 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+                16 => [
+                    'jsonld' => [
+                        'application/ld+json',
+                    ],
+                ],
+            ],
+            'uriVariables' => [
+                2 => [
+                    'id' => $o[5],
+                ],
+                9 => [],
+                12 => [
+                    'id' => $o[15],
+                ],
+                16 => [
+                    'id' => $o[19],
+                ],
+            ],
+            'routePrefix' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'routeName' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'defaults' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'requirements' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'options' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'stateless' => [
+                2 => true,
+                6 => true,
+                9 => true,
+                12 => true,
+                16 => true,
+            ],
+            'sunset' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'acceptPatch' => [
+                2 => 'application/merge-patch+json',
+                6 => null,
+                9 => 'application/merge-patch+json',
+                12 => 'application/merge-patch+json',
+                16 => 'application/merge-patch+json',
+            ],
+            'host' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'schemes' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'condition' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'controller' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'headers' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'cacheHeaders' => [
+                2 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                6 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                9 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                12 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+                16 => [
+                    'vary' => [
+                        'Content-Type',
+                        'Authorization',
+                        'Origin',
+                    ],
+                ],
+            ],
+            'hydraContext' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'openapiContext' => [
+                2 => null,
+                6 => null,
+                9 => [
+                    'security' => [
+                        [
+                            'JWT' => [],
+                        ],
+                    ],
+                ],
+                12 => [
+                    'security' => [
+                        [
+                            'JWT' => [],
+                        ],
+                    ],
+                ],
+                16 => [
+                    'security' => [
+                        [
+                            'JWT' => [],
+                        ],
+                    ],
+                ],
+            ],
+            'openapi' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'exceptionToStatus' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'queryParameterValidationEnabled' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+            'links' => [
+                2 => null,
+                6 => null,
+                9 => null,
+                12 => null,
+                16 => null,
+            ],
+        ],
+        'ApiPlatform\\Doctrine\\Common\\State\\Options' => [
+            'handleLinks' => [
+                3 => 'api_platform.doctrine.orm.links_handler',
+                7 => 'api_platform.doctrine.orm.links_handler',
+                10 => 'api_platform.doctrine.orm.links_handler',
+                13 => 'api_platform.doctrine.orm.links_handler',
+                17 => 'api_platform.doctrine.orm.links_handler',
+            ],
+        ],
+        'ApiPlatform\\Doctrine\\Orm\\State\\Options' => [
+            'entityClass' => [
+                3 => null,
+                7 => null,
+                10 => null,
+                13 => null,
+                17 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Parameter' => [
+            'key' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'schema' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'openApi' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'provider' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'filter' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'property' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'description' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'required' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'priority' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'constraints' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'extraProperties' => [
+                5 => [],
+                15 => [],
+                19 => [],
+                [],
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Link' => [
+            'parameterName' => [
+                5 => 'id',
+                15 => 'id',
+                19 => 'id',
+                'id',
+            ],
+            'fromProperty' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'toProperty' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'fromClass' => [
+                5 => 'App\\Entity\\People',
+                15 => 'App\\Entity\\People',
+                19 => 'App\\Entity\\People',
+                'App\\Entity\\People',
+            ],
+            'toClass' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'identifiers' => [
+                5 => [
+                    'id',
+                ],
+                15 => [
+                    'id',
+                ],
+                19 => [
+                    'id',
+                ],
+                [
+                    'id',
+                ],
+            ],
+            'compositeIdentifier' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'expandedValue' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'security' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'securityMessage' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+            'securityObjectName' => [
+                5 => null,
+                15 => null,
+                19 => null,
+                null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\GetCollection' => [
+            'itemUriTemplate' => [
+                6 => null,
+            ],
+        ],
+        'ApiPlatform\\Metadata\\Post' => [
+            'itemUriTemplate' => [
+                9 => null,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+    ],
+    []
+)];
