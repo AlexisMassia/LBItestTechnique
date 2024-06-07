@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\MovieHasPeopleRepository;
 use Symfony\Component\Serializer\Attribute\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: MovieHasPeopleRepository::class)]
 #[ApiResource(
@@ -56,16 +58,25 @@ class MovieHasPeople
 
     #[ORM\ManyToOne(inversedBy: 'movieRoles', targetEntity: People::class)]
     #[ORM\JoinColumn(name: 'People_id', referencedColumnName: 'id')]
+    #[Assert\NotNull(message: "The people must not be null.")]
     #[Groups(['read:Movie:item','write:MovieHasPeople'])]
     private People $people;
 
     #[ORM\Column(name: 'role', length: 255)]
     #[Groups(['read:Movie:item','read:People:item','write:MovieHasPeople'])]
+    #[Assert\NotBlank(message: "The role must not be blank.")]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "The role must be at maximum {{ limit }} characters long."
+    )]
     private ?string $role;
 
     #[ORM\Column(name: 'significance', length: 255)]
-    // TODO ENUM
     #[Groups(['read:Movie:item','read:People:item','write:MovieHasPeople'])]
+    #[Assert\Choice(
+        choices: ["principal", "secondaire"],
+        message: "The significance must be either 'principal' or 'secondaire'."
+    )]
     private $significance;
 
     public function getId(): ?int

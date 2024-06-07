@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Assert\Length;
+use Assert\NotBlank;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use App\Entity\MovieHasPeople;
@@ -12,9 +14,12 @@ use App\Repository\MovieRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
@@ -48,7 +53,9 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
             ]
         )
     ],
-)
+),
+ApiFilter(SearchFilter::class, properties: ['title' => 'partial']),
+ApiFilter(OrderFilter::class, properties: ['id', 'name'], arguments: ['orderParameterName' => 'order'] )
 ]
 class Movie
 {
@@ -60,10 +67,17 @@ class Movie
 
     #[ORM\Column(length: 255)]
     #[Groups(['read:Movie:collection:light','read:Movie:collection:full', 'read:Movie:item', 'write:Movie', 'read:People:item'])]
+    #[Assert\NotBlank(message: "The title must not be blank.")]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "The title must be at maximum {{ limit }} characters long."
+    )]
     private ?string $title = null;
 
     #[ORM\Column]
     #[Groups(['read:Movie:collection:full', 'read:Movie:item', 'write:Movie', 'read:People:item'])]
+    #[Assert\NotBlank(message: "The duration must not be blank.")]
+    #[Assert\Positive(message: "The duration must be a positive number.")]
     private ?int $duration = null;
 
     /**

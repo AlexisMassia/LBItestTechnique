@@ -24,7 +24,7 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                 null,
             ],
             'required' => [
-                false,
+                true,
             ],
             'identifier' => [
                 null,
@@ -69,6 +69,7 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
             ],
             'schema' => [
                 [
+                    'maxLength' => 255,
                     'type' => 'string',
                 ],
             ],

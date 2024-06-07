@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-// use Assert\Length;
-// use Assert\NotBlank;
 use App\Entity\Movie;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
@@ -14,9 +12,12 @@ use App\Repository\TypeRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
 #[ApiResource(
@@ -48,7 +49,9 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
             ]
         ),
     ],
-)
+),
+ApiFilter(SearchFilter::class, properties: ['name' => 'partial']),
+ApiFilter(OrderFilter::class, properties: ['id', 'name'], arguments: ['orderParameterName' => 'order'] ),
 ]
 class Type
 {
@@ -60,11 +63,11 @@ class Type
 
     #[ORM\Column(length: 255)]
     #[Groups(['read:Type:collection','read:Type:item','write:Type','read:Movie:collection:full','read:Movie:item'])]
-    // #[NotBlank(message: "The name must not be blank.")]
-    // #[Length(
-    //     max: 255, 
-    //     maxMessage: "The name must be at maximum {{ limit }} characters long."
-    // )]
+    #[Assert\NotBlank(message: "The name must not be blank.")]
+    #[Assert\Length(
+        max: 255, 
+        maxMessage: "The name must be at maximum {{ limit }} characters long."
+    )]
     private ?string $name = null;
 
     /**

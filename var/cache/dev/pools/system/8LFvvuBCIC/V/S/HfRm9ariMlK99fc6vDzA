@@ -24,7 +24,7 @@ return [PHP_INT_MAX, static fn () => \Symfony\Component\VarExporter\Internal\Hyd
                 null,
             ],
             'required' => [
-                false,
+                true,
             ],
             'identifier' => [
                 null,

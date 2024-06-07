@@ -13,9 +13,12 @@ use App\Repository\PeopleRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PeopleRepository::class)]
 #[ApiResource(
@@ -47,7 +50,9 @@ use Symfony\Component\Serializer\Attribute\SerializedName;
             ]
         ),
     ],
-)
+),
+ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'firstname' => 'partial', 'lastname' => 'partial', 'nationality' => 'exact']),
+ApiFilter(OrderFilter::class, properties: ['id', 'firstname', 'lastname', 'dateOfBirth'], arguments: ['orderParameterName' => 'order'] ),
 ]
 class People
 {
@@ -59,18 +64,34 @@ class People
 
     #[ORM\Column(length: 255)]
     #[Groups(['read:People:item','read:People:collection','read:Movie:item','write:People'])]
+    #[Assert\NotBlank(message: "The first name must not be blank.")]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "The first name must be at maximum {{ limit }} characters long."
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
     #[Groups(['read:People:item','read:People:collection','read:Movie:item','write:People'])]
+    #[Assert\NotBlank(message: "The last name must not be blank.")]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "The last name must be at maximum {{ limit }} characters long."
+    )]
     private ?string $lastname = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     #[Groups(['read:People:item','read:People:collection','read:Movie:item','write:People'])]
+    #[Assert\NotBlank(message: "The date of birth must not be blank.")]
     private ?\DateTimeInterface $dateOfBirth = null;
 
     #[ORM\Column(length: 255)]
     #[Groups(['read:People:item','read:People:collection','read:Movie:item','write:People'])]
+    #[Assert\NotBlank(message: "The nationality must not be blank.")]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: "The nationality must be at maximum {{ limit }} characters long."
+    )]
     private ?string $nationality = null;
 
     /**
