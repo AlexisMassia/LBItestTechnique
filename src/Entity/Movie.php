@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Assert\Length;
-use Assert\NotBlank;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use App\Entity\MovieHasPeople;
@@ -23,9 +21,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ApiResource(
-    // TODO : créer pagination et filtres
     // TODO : Créer DataProvider pour requetes n+1 si temps
     // TODO : créer doc si temps
+    paginationItemsPerPage: 10,
+    paginationMaximumItemsPerPage: 50, // TODO : à voir si légitime ou pas 
+    paginationClientItemsPerPage: true, // TODO : à voir si légitime ou pas 
     normalizationContext: ['groups' => ['read:Movie:collection:full']],
     operations: [
         new Get(

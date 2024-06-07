@@ -22,9 +22,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PeopleRepository::class)]
 #[ApiResource(
-    // TODO : créer pagination et filtres
     // TODO : Créer DataProvider pour requetes n+1 si temps
     // TODO : créer doc si temps
+    paginationItemsPerPage: 20,
+    paginationMaximumItemsPerPage: 50, // TODO : à voir si légitime ou pas 
+    paginationClientItemsPerPage: true, // TODO : à voir si légitime ou pas 
     normalizationContext: ['groups' => ['read:People:collection']],
     operations: [
         new Get(normalizationContext: ['groups' => ['read:People:item']]),

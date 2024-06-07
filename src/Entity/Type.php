@@ -21,9 +21,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TypeRepository::class)]
 #[ApiResource(
-    // TODO : créer pagination et filtres
     // TODO : Créer DataProvider pour requetes n+1 si temps
     // TODO : créer doc si temps    paginationItemsPerPage: 20,
+    paginationItemsPerPage: 20,
+    paginationMaximumItemsPerPage: 100, // TODO : à voir si légitime ou pas 
+    paginationClientItemsPerPage: true, // TODO : à voir si légitime ou pas 
     normalizationContext: ['groups' => ['read:Type:collection']],
     operations: [
         new Get(normalizationContext: ['groups' => ['read:Type:item', 'read:Movie:collection:light']]),
